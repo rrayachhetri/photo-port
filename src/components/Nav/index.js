@@ -1,6 +1,29 @@
 import React from "react";
 
 function Nav () {
+    const categories = [
+        {
+            name:"commercial",
+            description:"Photos of grocery stores, food trucks, and other commercial projects"
+        },
+        {
+            name:"potraits",
+            description:"Potraits of people in my life"
+        },
+        {
+            name:"food",
+            description:"Delicious delicacies"
+        },
+        {
+            name:"landscapes",
+            description:"Fields, farmhouses, waterfalls, and the beauty of nature"
+        },
+    ];
+
+    function categorySelected(name){
+        console.log(`${name} clicked`)
+    }
+
     return (
         <header>
             <h2>
@@ -18,6 +41,16 @@ function Nav () {
                     <li>
                         <span>Contact</span>
                     </li>
+                    {categories.map((category) => (
+                        <li
+                        className="mx-1"
+                        key={category.name}
+                        >
+                            <span onClick={() => categorySelected(category.name)} >
+                                {category.name}
+                            </span>
+                            </li>
+                    ))}
                 </ul>
             </nav>
         </header>
